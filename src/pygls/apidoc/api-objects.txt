@@ -1,1 +1,3 @@
+GPSDConnection	GPSDConnection-module.html
 PythonGLS	PythonGLS-module.html
+ServerConnection	ServerConnection-module.html
