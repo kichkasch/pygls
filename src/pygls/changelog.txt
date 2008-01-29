@@ -1,0 +1,5 @@
+Changes to PythonGLS
+
+Version 0.1 - ??/??/2008
+========================
+Initial version
