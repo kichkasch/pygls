@@ -166,7 +166,7 @@ class ServerConnection:
         if res != GLSCommands.RE_OK:
             raise GLSException.GLSException("Authentication error when connecting to GLS server.", GLSException.EC_AUTHENTICATION_ERROR, "The client (%s) could not be authenticated on the server." %(self._clientName))
         
-        res = self._sendCommands(GLSCommands.CO_DEVICE + self._deviceName, 1)  
+        res = self._sendCommand(GLSCommands.CO_DEVICE + self._deviceName, 1)  
         if res != GLSCommands.RE_OK:
             raise GLSException.GLSException("Device not accepted by server.", GLSException.EC_UNKNOWN_ERROR, "The server did not accept the device (%s) for the connection establishment." %(self._deviceName))
 

@@ -9,22 +9,52 @@ http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG
 @license: GPL (General Public License)
 """
 
-from ServerConnection import ServerConnection
-import GLSException
-
-#
-#
-# testing purposes - all this will be removed later on
-#
-# CathodioN,mysecretpassword
-
-#s = ServerConnection("localhost", 47757, "2", "kichkasch", "secret", "DummyDevice", "OpenMoko")
-s = ServerConnection("localhost", 47757, "2", "CathodioN", "mysecretpassword", "DummyDevice", "OpenMoko")
-try:
-    s.testConnection()
-except GLSException.GLSException, e:
-    print "Connection error: " + e.getMsg() + "\n\t" + e.getLongMsg()
+class Position:
+    """
+    GPS Position
     
-#
-# end - testing purposes
-#
+    @ivar _latitude: Latitude of the GPS position
+    @type _latitude: C{float}
+    @ivar _longitude: Longitude of the GPS position
+    @type _longitude: C{float}
+    @ivar _altitude: Altitude of the GPS position
+    @type _altitude: C{float}
+    @ivar _speed: Speed of the GPS position
+    @type _speed: C{float}
+    @ivar _bearing: Bearing of the GPS position
+    @type _bearing: C{float}
+    """
+
+    def __init__(self, latitude, longitude, altitude, speed, bearing):
+        """
+        Constructor
+        """
+        self._latitude = latitude
+        self._longitude = longitude
+        self._altitude = altitude
+        self._speed = speed
+        self._bearing = bearing
+
+    
+class Waypoint:
+    """
+    GPS Waypoint
+    
+    @ivar _latitude: Latitude of the waypoint
+    @type _latitude: C{float}
+    @ivar _longitude: Longitude of the waypoint
+    @type _longitude: C{float}
+    @ivar _altitude: Altitude of the waypoint
+    @type _altitude: C{float}
+    @ivar _name: Name of the waypoint
+    @type _name: C{String}
+    """
+
+    def __init__(self, latitude, longitude, altitude, name):
+        """
+        Constructor
+        """
+        self._latitude = latitude
+        self._longitude = longitude
+        self._altitude = altitude
+        self._name = name

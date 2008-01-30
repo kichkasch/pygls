@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pygls.ServerConnection.ServerConnection</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pygls-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG">PythonGLS</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pygls-module.html">Package&nbsp;pygls</a> ::
+        <a href="pygls.ServerConnection-module.html">Module&nbsp;ServerConnection</a> ::
+        Class&nbsp;ServerConnection
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pygls.ServerConnection.ServerConnection-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ServerConnection</h1><span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection">source&nbsp;code</a></span><br /><br />
+<p>An instance of this class maintains one connection to the GLS 
+  server.</p>
+  <p>It may be reused for several commands.</p>
+  <p>Connection will be established automatically as soon as the first 
+  command is to be sent to the server. Connection will be shut down from 
+  the client as soon as the destructor is called.</p>
+  There is no need (and way) to establish or shut down the connection to
+  the server manually.<br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pygls.ServerConnection.ServerConnection-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">hostName</span>,
+        <span class="summary-sig-arg">port</span>,
+        <span class="summary-sig-arg">version</span>,
+        <span class="summary-sig-arg">clientName</span>,
+        <span class="summary-sig-arg">password</span>,
+        <span class="summary-sig-arg">deviceName</span>,
+        <span class="summary-sig-arg">groupName</span>)</span><br />
+      Constructor</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pygls.ServerConnection.ServerConnection-class.html#__del__" class="summary-sig-name">__del__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Destructor</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection.__del__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code> or <code>List</code> of 
+      <code>String</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pygls.ServerConnection.ServerConnection-class.html#_sendCommand" class="summary-sig-name">_sendCommand</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">command</span>,
+        <span class="summary-sig-arg">initMode</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Sends exactly one command to the GLS server.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection._sendCommand">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>Dict</code> of <code>String</code> and <code>String</code> |
+      <code>List</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pygls.ServerConnection.ServerConnection-class.html#_sendCommands" class="summary-sig-name">_sendCommands</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">commands</span>,
+        <span class="summary-sig-arg">initMode</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Sends an array of commands to the GLS server (line by line).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection._sendCommands">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pygls.ServerConnection.ServerConnection-class.html#_establishConnection" class="summary-sig-name">_establishConnection</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Starts up the connection to the GLS server.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection._establishConnection">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_closeConnection"></a><span class="summary-sig-name">_closeConnection</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Closes down the socket to the server.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection._closeConnection">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pygls.ServerConnection.ServerConnection-class.html#testConnection" class="summary-sig-name">testConnection</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Tests connectivity to the GLS server.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection.testConnection">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_clientName"></a><span class="summary-name">_clientName</span><br />
+      Name of the client for logging into the GSL server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+        <a name="_connected"></a><span class="summary-name">_connected</span><br />
+      Connection state (0 is not connected, 1 is connected)
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_deviceName"></a><span class="summary-name">_deviceName</span><br />
+      Name of the GPS device
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_groupName"></a><span class="summary-name">_groupName</span><br />
+      Name of the group to be used for this session
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_hostName"></a><span class="summary-name">_hostName</span><br />
+      Hostname or IP address of the GLS server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_password"></a><span class="summary-name">_password</span><br />
+      Password for logging into the GLS server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+        <a name="_port"></a><span class="summary-name">_port</span><br />
+      Port, the GLS server is listening on
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code class="link">socket.socket</code></span>
+    </td><td class="summary">
+        <a name="_s"></a><span class="summary-name">_s</span><br />
+      Socket for the connection to GLS server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_serverVersion"></a><span class="summary-name">_serverVersion</span><br />
+      Versions of the GLS specification supported by the server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_version"></a><span class="summary-name">_version</span><br />
+      Version of the GLS protocol to use for the communication to GLS 
+      server
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">hostName</span>,
+        <span class="sig-arg">port</span>,
+        <span class="sig-arg">version</span>,
+        <span class="sig-arg">clientName</span>,
+        <span class="sig-arg">password</span>,
+        <span class="sig-arg">deviceName</span>,
+        <span class="sig-arg">groupName</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Constructor</p>
+  <p>Only stores the given parameters in instance variables. No connection 
+  is being established here.</p>
+  Available versions for server (<a 
+  href="pygls.ServerConnection.ServerConnection-class.html#_serverVersion" 
+  class="link">_serverVersion</a>) is set to <code>None</code>. Connection 
+  state (<a 
+  href="pygls.ServerConnection.ServerConnection-class.html#_connected" 
+  class="link">_connected</a>) is set to 0.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>hostName</code></strong> (<code>String</code>) - Hostname or IP address of the GLS server</li>
+        <li><strong class="pname"><code>port</code></strong> (<code>int</code>) - Port, the GLS server is listening on</li>
+        <li><strong class="pname"><code>version</code></strong> (<code>String</code>) - Version of the GLS protocol to use for the communication to 
+          GLS server</li>
+        <li><strong class="pname"><code>clientName</code></strong> (<code>String</code>) - Name of the client for logging into the GSL server</li>
+        <li><strong class="pname"><code>password</code></strong> (<code>String</code>) - Password for logging into the GLS server</li>
+        <li><strong class="pname"><code>deviceName</code></strong> (<code>String</code>) - Name of the GPS device</li>
+        <li><strong class="pname"><code>groupName</code></strong> (<code>String</code>) - Name of the group to be used for this session</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__del__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__del__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Destructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection.__del__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Destructor</p>
+  Closes connection to server.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_sendCommand"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_sendCommand</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">command</span>,
+        <span class="sig-arg">initMode</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection._sendCommand">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Sends exactly one command to the GLS server.</p>
+  The command is extended by a line feed before sending. The line feed 
+  from the line(s) in the reply is / are removed before the value is 
+  returned.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>command</code></strong> (<code>String</code>) - Command to be sent to the server</li>
+        <li><strong class="pname"><code>initMode</code></strong> (<code>int</code>) - When sending this command the connection is in initialisation 
+          mode; meaning, it shall no be checked, whether a connection is 
+          establised already</li>
+    </ul></dd>
+    <dt>Returns: <code>String</code> or <code>List</code> of 
+      <code>String</code></dt>
+        <dd>Received reply from the server. A String in case of a single 
+          line reply; an array of strings in case of multi line reply.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_sendCommands"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_sendCommands</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">commands</span>,
+        <span class="sig-arg">initMode</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection._sendCommands">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Sends an array of commands to the GLS server (line by line).</p>
+  <p>Each item in the lists is sent to the GLS server. Before sending, a 
+  line feed is appended.</p>
+  Received results are stored in a dictionary - the list of commands 
+  makes up the keys in the dictionary, the received results are the values.
+  (Values might either be a simple string or a list of strings in case of 
+  several lines are sent back by the server for a command.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>commands</code></strong> (<code>List</code>) - Commands to be send to the GLS server. They must not contain 
+          the line feed.</li>
+        <li><strong class="pname"><code>initMode</code></strong> (<code>int</code>) - When sending this command the connection is in initialisation 
+          mode; meaning, it shall no be checked, whether a connection is 
+          establised already</li>
+    </ul></dd>
+    <dt>Returns: <code>Dict</code> of <code>String</code> and <code>String</code> |
+      <code>List</code></dt>
+        <dd>Received results for all command</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_establishConnection"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_establishConnection</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection._establishConnection">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Starts up the connection to the GLS server.</p>
+  <p>The method is going through the full handshake (V, N, D) with the GLS 
+  server. If a password is available for this connection, it is used - if 
+  no password is available, the connection is being established without 
+  providing one.</p>
+  The socket is stored in the instance reference (<a 
+  href="pygls.ServerConnection.ServerConnection-class.html#_s" 
+  class="link">_s</a>) and the state of the connection (<a 
+  href="pygls.ServerConnection.ServerConnection-class.html#_connected" 
+  class="link">_connected</a>) is set to 1. The reply of the server with 
+  the supported versions is stored in the instance reference (<a 
+  href="pygls.ServerConnection.ServerConnection-class.html#_serverVersion" 
+  class="link">_serverVersion</a>).
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="testConnection"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">testConnection</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pygls.ServerConnection-pysrc.html#ServerConnection.testConnection">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Tests connectivity to the GLS server.</p>
+  <p>Sends a testing request to the server. As there is nothing like a 
+  &quot;ping&quot; implemented in the protocol it is requesting the list of
+  available groups.</p>
+  An exception is raised if not sucessful.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pygls-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG">PythonGLS</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Wed Jan 30 16:51:14 2008
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

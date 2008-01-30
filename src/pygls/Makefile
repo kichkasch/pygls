@@ -27,6 +27,9 @@ api-docs:	$(API_DOC_DIR)
 
 docs:   api-docs
 
+install:
+	$(PYTHON) setup.py install
+
 clean:
 	$(RM) *.pyc pygls/*.pyc
 
