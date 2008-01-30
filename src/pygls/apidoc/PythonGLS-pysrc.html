@@ -67,7 +67,33 @@
 <a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">@contact: http://www.kichkasch.de</tt> </tt>
 <a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">@license: GPL (General Public License)</tt> </tt>
 <a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
-<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module ServerConnection=ServerConnection-module.html,Class ServerConnection.ServerConnection=ServerConnection.ServerConnection-class.html"><a title="ServerConnection
+ServerConnection.ServerConnection" class="py-name" href="#" onclick="return doclink('link-0', 'ServerConnection', 'link-0');">ServerConnection</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name"><a title="ServerConnection
+ServerConnection.ServerConnection" class="py-name" href="#" onclick="return doclink('link-1', 'ServerConnection', 'link-0');">ServerConnection</a></tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module GLSException=GLSException-module.html,Class GLSException.GLSException=GLSException.GLSException-class.html"><a title="GLSException
+GLSException.GLSException" class="py-name" href="#" onclick="return doclink('link-2', 'GLSException', 'link-2');">GLSException</a></tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># testing purposes - all this will be removed later on</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># CathodioN,mysecretpassword</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-comment">#s = ServerConnection("localhost", 47757, "2", "kichkasch", "secret", "DummyDevice", "OpenMoko")</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-3" class="py-name" targets="Variable PythonGLS.s=PythonGLS-module.html#s"><a title="PythonGLS.s" class="py-name" href="#" onclick="return doclink('link-3', 's', 'link-3');">s</a></tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="ServerConnection
+ServerConnection.ServerConnection" class="py-name" href="#" onclick="return doclink('link-4', 'ServerConnection', 'link-0');">ServerConnection</a></tt><tt class="py-op">(</tt><tt class="py-string">"localhost"</tt><tt class="py-op">,</tt> <tt class="py-number">47757</tt><tt class="py-op">,</tt> <tt class="py-string">"2"</tt><tt class="py-op">,</tt> <tt class="py-string">"CathodioN"</tt><tt class="py-op">,</tt> <tt class="py-string">"mysecretpassword"</tt><tt class="py-op">,</tt> <tt class="py-string">"DummyDevice"</tt><tt class="py-op">,</tt> <tt class="py-string">"OpenMoko"</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt id="link-5" class="py-name"><a title="PythonGLS.s" class="py-name" href="#" onclick="return doclink('link-5', 's', 'link-3');">s</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method ServerConnection.ServerConnection.testConnection()=ServerConnection.ServerConnection-class.html#testConnection"><a title="ServerConnection.ServerConnection.testConnection" class="py-name" href="#" onclick="return doclink('link-6', 'testConnection', 'link-6');">testConnection</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt id="link-7" class="py-name"><a title="GLSException
+GLSException.GLSException" class="py-name" href="#" onclick="return doclink('link-7', 'GLSException', 'link-2');">GLSException</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="GLSException
+GLSException.GLSException" class="py-name" href="#" onclick="return doclink('link-8', 'GLSException', 'link-2');">GLSException</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Variable PythonGLS.e=PythonGLS-module.html#e"><a title="PythonGLS.e" class="py-name" href="#" onclick="return doclink('link-9', 'e', 'link-9');">e</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">"Connection error: "</tt> <tt class="py-op">+</tt> <tt id="link-10" class="py-name"><a title="PythonGLS.e" class="py-name" href="#" onclick="return doclink('link-10', 'e', 'link-9');">e</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method GLSException.GLSException.getMsg()=GLSException.GLSException-class.html#getMsg"><a title="GLSException.GLSException.getMsg" class="py-name" href="#" onclick="return doclink('link-11', 'getMsg', 'link-11');">getMsg</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">"\n\t"</tt> <tt class="py-op">+</tt> <tt id="link-12" class="py-name"><a title="PythonGLS.e" class="py-name" href="#" onclick="return doclink('link-12', 'e', 'link-9');">e</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method GLSException.GLSException.getLongMsg()=GLSException.GLSException-class.html#getLongMsg"><a title="GLSException.GLSException.getLongMsg" class="py-name" href="#" onclick="return doclink('link-13', 'getLongMsg', 'link-13');">getLongMsg</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">     </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># end - testing purposes</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment">#</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -102,7 +128,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Jan 30 10:32:41 2008
+    Generated by Epydoc 3.0beta1 on Wed Jan 30 14:05:34 2008
     </td>
     <td align="right" class="footer">
       <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>

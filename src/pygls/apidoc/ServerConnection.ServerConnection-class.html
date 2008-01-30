@@ -60,7 +60,12 @@
 <h1 class="epydoc">Class ServerConnection</h1><span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection">source&nbsp;code</a></span><br /><br />
 <p>An instance of this class maintains one connection to the GLS 
   server.</p>
-  It may be reused for several commands.<br /><br />
+  <p>It may be reused for several commands.</p>
+  <p>Connection will be established automatically as soon as the first 
+  command is to be sent to the server. Connection will be shut down from 
+  the client as soon as the destructor is called.</p>
+  There is no need (and way) to establish or shut down the connection to
+  the server manually.<br /><br />
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -103,6 +108,23 @@
       
     </td>
   </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="ServerConnection.ServerConnection-class.html#__del__" class="summary-sig-name">__del__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Destructor</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection.__del__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
 <tr class="private">
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type"><code>String</code> or <code>List</code> of 
@@ -110,12 +132,12 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="ServerConnection.ServerConnection-class.html#_sendComamnd" class="summary-sig-name">_sendComamnd</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">s</span>,
-        <span class="summary-sig-arg">command</span>)</span><br />
+          <td><span class="summary-sig"><a href="ServerConnection.ServerConnection-class.html#_sendCommand" class="summary-sig-name">_sendCommand</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">command</span>,
+        <span class="summary-sig-arg">initMode</span>=<span class="summary-sig-default">0</span>)</span><br />
       Sends exactly one command to the GLS server.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection._sendComamnd">source&nbsp;code</a></span>
+            <span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection._sendCommand">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -131,10 +153,45 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="ServerConnection.ServerConnection-class.html#_sendCommands" class="summary-sig-name">_sendCommands</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">commands</span>)</span><br />
+        <span class="summary-sig-arg">commands</span>,
+        <span class="summary-sig-arg">initMode</span>=<span class="summary-sig-default">0</span>)</span><br />
       Sends an array of commands to the GLS server (line by line).</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection._sendCommands">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="ServerConnection.ServerConnection-class.html#_establishConnection" class="summary-sig-name">_establishConnection</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Starts up the connection to the GLS server.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection._establishConnection">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_closeConnection"></a><span class="summary-sig-name">_closeConnection</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Closes down the socket to the server.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection._closeConnection">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -149,8 +206,7 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="ServerConnection.ServerConnection-class.html#testConnection" class="summary-sig-name">testConnection</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      Tests connectivity to the GLS server using the parameters stored 
-      for the instance.</td>
+      Tests connectivity to the GLS server.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection.testConnection">source&nbsp;code</a></span>
             
@@ -158,6 +214,105 @@
         </tr>
       </table>
       
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_clientName"></a><span class="summary-name">_clientName</span><br />
+      Name of the client for logging into the GSL server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+        <a name="_connected"></a><span class="summary-name">_connected</span><br />
+      Connection state (0 is not connected, 1 is connected)
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_deviceName"></a><span class="summary-name">_deviceName</span><br />
+      Name of the GPS device
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_groupName"></a><span class="summary-name">_groupName</span><br />
+      Name of the group to be used for this session
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_hostName"></a><span class="summary-name">_hostName</span><br />
+      Hostname or IP address of the GLS server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_password"></a><span class="summary-name">_password</span><br />
+      Password for logging into the GLS server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+        <a name="_port"></a><span class="summary-name">_port</span><br />
+      Port, the GLS server is listening on
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code class="link">socket.socket</code></span>
+    </td><td class="summary">
+        <a name="_s"></a><span class="summary-name">_s</span><br />
+      Socket for the connection to GLS server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_serverVersion"></a><span class="summary-name">_serverVersion</span><br />
+      Versions of the GLS specification supported by the server
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>String</code></span>
+    </td><td class="summary">
+        <a name="_version"></a><span class="summary-name">_version</span><br />
+      Version of the GLS protocol to use for the communication to GLS 
+      server
     </td>
   </tr>
 </table>
@@ -202,8 +357,13 @@
   </table>
   
   <p>Constructor</p>
-  Only stores the given parameters in instance variables. No connection 
-  is being established here.
+  <p>Only stores the given parameters in instance variables. No connection 
+  is being established here.</p>
+  Available versions for server (<a 
+  href="ServerConnection.ServerConnection-class.html#_serverVersion" 
+  class="link">_serverVersion</a>) is set to <code>None</code>. Connection 
+  state (<a href="ServerConnection.ServerConnection-class.html#_connected" 
+  class="link">_connected</a>) is set to 0.
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
@@ -219,19 +379,40 @@
   </dl>
 </td></tr></table>
 </div>
-<a name="_sendComamnd"></a>
+<a name="__del__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__del__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Destructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection.__del__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Destructor</p>
+  Close connection to server.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_sendCommand"></a>
 <div class="private">
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">_sendComamnd</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">s</span>,
-        <span class="sig-arg">command</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_sendCommand</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">command</span>,
+        <span class="sig-arg">initMode</span>=<span class="sig-default">0</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection._sendComamnd">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection._sendCommand">source&nbsp;code</a></span>&nbsp;
     </td>
   </table>
   
@@ -242,8 +423,10 @@
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>s</code></strong> (<code class="link">socket.socket</code>) - Socket, which shall be used for sending commands</li>
         <li><strong class="pname"><code>command</code></strong> (<code>String</code>) - Command to be sent to the server</li>
+        <li><strong class="pname"><code>initMode</code></strong> (<code>int</code>) - When sending this command the connection is in initialisation 
+          mode; meaning, it shall no be checked, whether a connection is 
+          establised already</li>
     </ul></dd>
     <dt>Returns: <code>String</code> or <code>List</code> of 
       <code>String</code></dt>
@@ -260,7 +443,8 @@
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">_sendCommands</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">commands</span>)</span>
+        <span class="sig-arg">commands</span>,
+        <span class="sig-arg">initMode</span>=<span class="sig-default">0</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection._sendCommands">source&nbsp;code</a></span>&nbsp;
@@ -279,10 +463,44 @@
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>commands</code></strong> (<code>List</code>) - Commands to be send to the GLS server. They must not contain 
           the line feed.</li>
+        <li><strong class="pname"><code>initMode</code></strong> (<code>int</code>) - When sending this command the connection is in initialisation 
+          mode; meaning, it shall no be checked, whether a connection is 
+          establised already</li>
     </ul></dd>
     <dt>Returns: <code>Dict</code> of <code>String</code> and <code>String</code> |
       <code>List</code></dt>
         <dd>Received results for all command</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_establishConnection"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_establishConnection</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="ServerConnection-pysrc.html#ServerConnection._establishConnection">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>Starts up the connection to the GLS server.</p>
+  <p>The method is going through the full handshake (V, N, D) with the GLS 
+  server. If a password is available for this connection, it is used - if 
+  no password is available, the connection is being established without 
+  providing one.</p>
+  The socket is stored in the instance reference (<a 
+  href="ServerConnection.ServerConnection-class.html#_s" 
+  class="link">_s</a>) and the state of the connection (<a 
+  href="ServerConnection.ServerConnection-class.html#_connected" 
+  class="link">_connected</a>) is set to 1. The reply of the server with 
+  the supported versions is stored in the instance reference (<a 
+  href="ServerConnection.ServerConnection-class.html#_serverVersion" 
+  class="link">_serverVersion</a>).
+  <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
@@ -300,13 +518,11 @@
     </td>
   </table>
   
-  <p>Tests connectivity to the GLS server using the parameters stored for 
-  the instance.</p>
-  <p>Sends a sequence of commands V, N, D and Q to the server and evaluates
-  the replies. If a password is available for this connection, it is used -
-  if no password is available, the connection is being established without 
-  providing one.</p>
-  An exception is raised if the connection cannot be established.
+  <p>Tests connectivity to the GLS server.</p>
+  <p>Sends a testing request to the server. As there is nothing like a 
+  &quot;ping&quot; implemented in the protocol it is requesting the list of
+  available groups.</p>
+  An exception is raised if not sucessful.
   <dl class="fields">
   </dl>
 </td></tr></table>
@@ -340,7 +556,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0beta1 on Wed Jan 30 10:32:41 2008
+    Generated by Epydoc 3.0beta1 on Wed Jan 30 14:05:34 2008
     </td>
     <td align="right" class="footer">
       <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>

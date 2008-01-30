@@ -11,9 +11,12 @@ http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG
 @type EC_UNKNOWN_ERROR: C{int}
 @var EC_VERSION_NOT_SUPPORTED: Error code - version of protocol not supported
 @type EC_VERSION_NOT_SUPPORTED: C{int}
+@var EC_AUTHENTICATION_ERROR: Error code - authentication error when connecting to server
+@type EC_AUTHENTICATION_ERROR: C{int}
 """
 EC_UNKNOWN_ERROR = 0
 EC_VERSION_NOT_SUPPORTED = 1     
+EC_AUTHENTICATION_ERROR = 2
 
 class GLSException(Exception):
     """
