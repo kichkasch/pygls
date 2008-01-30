@@ -15,6 +15,16 @@ Simple atomic tests (conntectivity and so on).
 host_testserver = "localhost"
 port_testserver = 47757
 
+def _oneCommand(s, c, printCommand = 1, printResult = 1):
+    if printCommand:
+        print "\tSending: %s" %c
+    s.send(c +'\n')
+    data, tmp = s.recvfrom(1024)
+    data = data[:len(data)-1]   # remove line feed
+    if printResult:
+        print 'Received', repr(data)
+    return data
+
 def testServerConnectivity(host, port):
     import socket
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -23,9 +33,11 @@ def testServerConnectivity(host, port):
     print "Connected to %s " %host
     data, tmp = s.recvfrom(1024)
     print 'Received', repr(data)
-    s.send('V2\n')
-    data, tmp = s.recvfrom(1024)
-    print 'Received', repr(data)
+    
+    _oneCommand(s, 'V2')
+    _oneCommand(s, 'G')
+    _oneCommand(s, 'GOpenMoko')
+
     s.close()
     
 testServerConnectivity(host_testserver, port_testserver)

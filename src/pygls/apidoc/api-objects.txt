@@ -1,3 +1,17 @@
+GLSException	GLSException-module.html
+GLSException.EC_UNKNOWN_ERROR	GLSException-module.html#EC_UNKNOWN_ERROR
+GLSException.EC_VERSION_NOT_SUPPORTED	GLSException-module.html#EC_VERSION_NOT_SUPPORTED
 GPSDConnection	GPSDConnection-module.html
 PythonGLS	PythonGLS-module.html
 ServerConnection	ServerConnection-module.html
+GLSException.GLSException	GLSException.GLSException-class.html
+GLSException.GLSException.getErrorCode	GLSException.GLSException-class.html#getErrorCode
+GLSException.GLSException.__str__	GLSException.GLSException-class.html#__str__
+GLSException.GLSException.getMsg	GLSException.GLSException-class.html#getMsg
+GLSException.GLSException.__init__	GLSException.GLSException-class.html#__init__
+GLSException.GLSException.getLongMsg	GLSException.GLSException-class.html#getLongMsg
+ServerConnection.ServerConnection	ServerConnection.ServerConnection-class.html
+ServerConnection.ServerConnection._sendComamnd	ServerConnection.ServerConnection-class.html#_sendComamnd
+ServerConnection.ServerConnection._sendCommands	ServerConnection.ServerConnection-class.html#_sendCommands
+ServerConnection.ServerConnection.testConnection	ServerConnection.ServerConnection-class.html#testConnection
+ServerConnection.ServerConnection.__init__	ServerConnection.ServerConnection-class.html#__init__

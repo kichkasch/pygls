@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Module Hierarchy</title>
+  <title>Class Hierarchy</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -45,7 +45,7 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="module-tree.html"
+            >]&nbsp;|&nbsp;<a href="class-tree.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
@@ -55,16 +55,30 @@
  [ <a href="module-tree.html">Module Hierarchy</a>
  | <a href="class-tree.html">Class Hierarchy</a> ]
 </b></center><br />
-<h1 class="epydoc">Module Hierarchy</h1>
+<h1 class="epydoc">Class Hierarchy</h1>
 <ul class="nomargin-top">
-    <li> <strong class="uidlink"><a href="GLSException-module.html">GLSException</a></strong>: <em class="summary">Python library for GPS Location Sharing - defines all Types for 
-        exception handling.</em>    </li>
-    <li> <strong class="uidlink"><a href="GPSDConnection-module.html">GPSDConnection</a></strong>: <em class="summary">Python library for GPS Location Sharing - responsible for the 
-        connection to the GPSD.</em>    </li>
-    <li> <strong class="uidlink"><a href="PythonGLS-module.html">PythonGLS</a></strong>: <em class="summary">Python library for GPS Location Sharing - entry point to 
-        library.</em>    </li>
-    <li> <strong class="uidlink"><a href="ServerConnection-module.html">ServerConnection</a></strong>: <em class="summary">Python library for GPS Location Sharing - responsible for the 
-        connection to the GLS Server.</em>    </li>
+    <li> <strong class="uidlink"><a href="ServerConnection.ServerConnection-class.html">ServerConnection.ServerConnection</a></strong>:
+      <em class="summary">An instance of this class maintains one connection to the GLS 
+        server.</em>
+    </li>
+    <li> <strong class="uidlink">object</strong>:
+      <em class="summary">The most base type</em>
+    <ul>
+    <li> <strong class="uidlink">exceptions.BaseException</strong>:
+      <em class="summary">Common base class for all exceptions</em>
+    <ul>
+    <li> <strong class="uidlink">exceptions.Exception</strong>:
+      <em class="summary">Common base class for all non-exit exceptions.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="GLSException.GLSException-class.html">GLSException.GLSException</a></strong>:
+      <em class="summary">GLS specific exception to cover error states.</em>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
 </ul>
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"

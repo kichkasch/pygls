@@ -22,7 +22,8 @@ $(API_DOC_DIR):
 	$(MKDIR) $(API_DOC_DIR)
 
 api-docs:	$(API_DOC_DIR)
-	$(EPYDOC) --html --inheritance listed -o $(API_DOC_DIR) --name $(TITLE) --url $(URL) --css blue --no-private *.py
+	$(EPYDOC) --html --inheritance listed -o $(API_DOC_DIR) --name $(TITLE) --url $(URL) --css blue *.py
+#	$(EPYDOC) --html --inheritance listed -o $(API_DOC_DIR) --name $(TITLE) --url $(URL) --css blue --no-private *.py
 
 docs:   api-docs
 

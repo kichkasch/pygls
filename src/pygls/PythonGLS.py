@@ -1,5 +1,6 @@
 """
-Python library for GPS Location Sharing.
+Python library for GPS Location Sharing - entry point to library.
+
 http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG
 
 @author: Michael Pilgermann
