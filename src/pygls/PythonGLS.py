@@ -34,6 +34,47 @@ class Position:
         self._altitude = altitude
         self._speed = speed
         self._bearing = bearing
+        
+    def __str__(self):
+        """
+        Computes a string representation of the content of this position instance.
+        
+        This representation is made up by the latitude, the longitude and the altitude.
+        
+        @return: String representation of object content
+        @rtype: C{String}        
+        """
+        return "Position: " + str(self._latitude) + "," + str(self._longitude) + "," + str(self._altitude)
+        
+    def getLatitude(self):
+        """
+        GETTER
+        """
+        return self._latitude
+
+    def getLongitude(self):
+        """
+        GETTER
+        """
+        return self._longitude
+
+    def getAltitude(self):
+        """
+        GETTER
+        """
+        return self._altitude
+
+    def getSpeed(self):
+        """
+        GETTER
+        """
+        return self._speed
+
+    def getBearing(self):
+        """
+        GETTER
+        """
+        return self._bearing
 
     
 class Waypoint:
@@ -58,3 +99,38 @@ class Waypoint:
         self._longitude = longitude
         self._altitude = altitude
         self._name = name
+
+    def __str__(self):
+        """
+        Computes a string representation of the content of this waypoint instance.
+        
+        This representation is made up by the name, the latitude, the longitude and the altitude.
+        
+        @return: String representation of object content
+        @rtype: C{String}        
+        """
+        return "Waypoint "  + self._name + ": " + str(self._latitude) + "," + str(self._longitude) + "," + str(self._altitude)
+        
+    def getLatitude(self):
+        """
+        GETTER
+        """
+        return self._latitude
+
+    def getLongitude(self):
+        """
+        GETTER
+        """
+        return self._longitude
+
+    def getAltitude(self):
+        """
+        GETTER
+        """
+        return self._altitude
+
+    def getName(self):
+        """
+        GETTER
+        """
+        return self._name

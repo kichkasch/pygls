@@ -17,6 +17,8 @@ http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG
 EC_UNKNOWN_ERROR = 0
 EC_VERSION_NOT_SUPPORTED = 1     
 EC_AUTHENTICATION_ERROR = 2
+EC_VIOLATION_BUSINESS_RULES = 3
+EC_VALIDATION_ERROR = 4
 
 class GLSException(Exception):
     """

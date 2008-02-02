@@ -11,6 +11,7 @@ http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG
 import socket
 import GLSException
 import GLSCommands
+from PythonGLS import Position, Waypoint
 
 class ServerConnection:
     """
@@ -94,6 +95,14 @@ class ServerConnection:
         The command is extended by a line feed before sending. The line feed from the line(s) in the reply
         is / are removed before the value is returned.
         
+        Replies, which are made up by several lines are returned as a list of Strings (in contrast to single line replies,
+        which are returned as a single String). Multi-Line-Replies are currently indicated by a leading "P" (position of others)
+        ,a leading "W" (waypoints of others) or a leading "G" (available groups). The sequence is terminated by a line made 
+        up by an "F". This last line will be part of the returned list as well.
+        
+        The replies are checked for error messages. If the reply is either a "C" or an "E" an L{GLSException.GLSException}
+        will be raised.
+        
         @param command: Command to be sent to the server
         @type command: C{String}
         @param initMode: When sending this command the connection is in initialisation mode; meaning, it shall no be checked, whether a connection is establised already
@@ -101,13 +110,30 @@ class ServerConnection:
         @return: Received reply from the server. A String in case of a single line reply; an array of strings in case of multi line reply.
         @rtype: C{String} or C{List} of C{String}
         """
-        print "Sending %s" %command
+##        print "Sending %s" %command
         if not self._connected and not initMode:
             self._establishConnection()
         self._s.send(command +'\n')
         data, tmp = self._s.recvfrom(1024)
         data = data[:len(data)-1]   # remove line feed
-        print "\tReceived %s" %data
+
+        if len(data) < 1:
+            raise GLSException.GLSException("No data from server.", GLSException.EC_VALIDATION_ERROR, "No data was returned from the server for the command " + command)
+
+        if data[0] == GLSCommands.RE_CHANGE:
+            raise GLSException.GLSException("Violation of business rules (C) when sending the command.", GLSException.EC_VIOLATION_BUSINESS_RULES, "A business rule was violated when sending the command " + command)
+        if data[0] == GLSCommands.RE_ERROR:
+            raise GLSException.GLSException("Validation error (E) when sending the command.", GLSException.EC_VALIDATION_ERROR, "A validation error occured when sending the command " + command)
+
+        if data[0] == GLSCommands.RE_POSITION or data[0] == GLSCommands.RE_WAYPOINT or data[0] == GLSCommands.RE_GROUP or data[0] == GLSCommands.RE_FINISHED:
+            ret = []
+            ret.append(data)
+            while data[0] != GLSCommands.RE_FINISHED:   # fill up return list until the FINISH line comes in
+                data, tmp = self._s.recvfrom(1024)
+                data = data[:len(data)-1]   # remove line feed
+                ret.append(data)
+            data = ret
+##        print "\tReceived %s" %data
         return data
     
     def _sendCommands(self, commands, initMode = 0):
@@ -147,31 +173,34 @@ class ServerConnection:
         """
         if self._connected:
             return
-        print "Connection attempt for %s." %self._hostName
+##        print "Connection attempt for %s." %self._hostName
         self._s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._s.connect((self._hostName, self._port))
         data, tmp = self._s.recvfrom(1024)
         self._serverVersion = data[:len(data)-1]
         
-        res = self._sendCommand(GLSCommands.CO_VERSION +self._version, 1)
-        if res != GLSCommands.RE_OK:
+        try:
+            res = self._sendCommand(GLSCommands.CO_VERSION +self._version, 1)
+        except GLSException.GLSException:
             raise GLSException.GLSException("Requested version of GLS specification not supported by server.", GLSException.EC_VERSION_NOT_SUPPORTED, "Version mismatch - server understands %s; client wants to speak %s" % (self._serverVersion, self._version))
-        
         
         if self._password:
             comm = GLSCommands.CO_LOGIN + self._clientName + "," + self._password
         else:
             comm = GLSCommands.CO_LOGIN + self._clientName
-        res = self._sendCommand(comm, 1)
-        if res != GLSCommands.RE_OK:
+
+        try:
+            res = self._sendCommand(comm, 1)
+        except GLSException.GLSException:
             raise GLSException.GLSException("Authentication error when connecting to GLS server.", GLSException.EC_AUTHENTICATION_ERROR, "The client (%s) could not be authenticated on the server." %(self._clientName))
         
-        res = self._sendCommand(GLSCommands.CO_DEVICE + self._deviceName, 1)  
-        if res != GLSCommands.RE_OK:
+        try:
+            res = self._sendCommand(GLSCommands.CO_DEVICE + self._deviceName, 1)  
+        except GLSException.GLSException:
             raise GLSException.GLSException("Device not accepted by server.", GLSException.EC_UNKNOWN_ERROR, "The server did not accept the device (%s) for the connection establishment." %(self._deviceName))
 
         self._connected = 1
-        print "Connected to %s " %self._hostName
+##        print "Connected to %s " %self._hostName
         
         
     def _closeConnection(self):
@@ -180,10 +209,10 @@ class ServerConnection:
         """
         if not self._connected:
             return
-        print "Closing connection to GLS server"
+##        print "Closing connection to GLS server"
         self._sendCommand(GLSCommands.CO_QUIT)
         self._s.close()
-        print "\tConnection closed"
+##        print "\tConnection closed"
 
         
     def testConnection(self):
@@ -202,3 +231,153 @@ class ServerConnection:
                 raise e
             raise GLSException.GLSException("Connection to server could not be established.", GLSException.EC_UNKNOWN_ERROR, "Underlaying error: " + str(e))
 
+    def requestGroups(self):
+        """
+        Requests a list of available groups from the server.
+        
+        @return: The list of available groups as returned from the server
+        @rtype: C{List} of C{String}
+        """
+        try:
+            res = self._sendCommand(GLSCommands.CO_GROUP)    
+            ret = []
+            for item in res:
+                if item[0]!= GLSCommands.RE_FINISHED:
+                    ret.append(item[1:])
+            return ret
+        except Exception, e:
+            if isinstance(e, GLSException.GLSException):
+                raise e
+            raise GLSException.GLSException("Could not request groups from server.", GLSException.EC_UNKNOWN_ERROR, "Underlaying error: " + str(e))
+        
+    def joinGroup(self, groupName):
+        """
+        Makes an attempt to join a group on the server.
+        
+        Raises an L{GLSException.GLSException} if the attempt was not sucessful.
+        
+        @param groupName: Name of the group, which shall be joined
+        @type groupName: C{String}
+        """
+        try:
+            res = self._sendCommand(GLSCommands.CO_GROUP + groupName) 
+        except Exception, e:
+            if isinstance(e, GLSException.GLSException):
+                raise e
+            raise GLSException.GLSException("Could not join group on server.", GLSException.EC_UNKNOWN_ERROR, "Underlaying error: " + str(e))
+
+    def _packFloatsInString(self, floats, separator = ","):
+        """
+        Supporting function to pack together a bunch of floats in a string.
+        
+        @param floats: Numbers to be packed
+        @type floats: C{List} of C{Float}
+        @param separator: Character to put between two numbers
+        @type separator: C{String}
+        @return: String containing all the given numbers
+        @rtype: C{String}
+        """
+        st = ""
+        for nr in floats:
+            st += str(nr) + separator
+        st = st[:len(st) - len(separator)]
+        return st
+        
+    def _extractFloatsFromString(self, st, separator = ","):
+        """
+        Supporting function to unpack a bunch of floats from a string.
+        
+        All items from the list, which cannot be transformed into floats, will be returned as strings within the list.
+        
+        @param st: String containing the numbers
+        @type st: C{String}
+        @param separator: Character to put between two numbers
+        @type separator: C{String}
+        @return: List containing the unpacked numbers
+        @rtype: C{List} of C{Float}
+        """
+        items = st.split(separator)
+        ret = []
+        for item in items:
+            try:
+                ret.append(float(item))
+            except ValueError:
+                ret.append(item)
+        return ret
+        
+
+    def sendPosition(self, position):
+        """
+        Sends a GPS position to the server.
+        
+        @param position: GPS position to be sent to the server
+        @type position: L{PythonGLS.Position}
+        """
+        numbers = [position.getLatitude(), position.getLongitude(), position.getAltitude(), position.getSpeed(), position.getBearing()]
+        posStr = self._packFloatsInString(numbers)
+        try:
+            res = self._sendCommand(GLSCommands.CO_POSITION + posStr) 
+        except Exception, e:
+            if isinstance(e, GLSException.GLSException):
+                raise e
+            raise GLSException.GLSException("Could not send position to server.", GLSException.EC_UNKNOWN_ERROR, "Underlaying error: " + str(e))
+
+    def sendWaypoint(self, waypoint):
+        """
+        Sends a waypoint to the server.
+        
+        @param waypoint: Waypoint to be sent to the server
+        @type waypoint: L[PythonGLS.Waypoint}
+        """
+        numbers = [waypoint.getLatitude(), waypoint.getLongitude(), waypoint.getAltitude()]
+        wpStr = self._packFloatsInString(numbers)
+        try:
+            res = self._sendCommand(GLSCommands.CO_WAYPOINT + wpStr + "," + waypoint.getName()) 
+        except Exception, e:
+            if isinstance(e, GLSException.GLSException):
+                raise e
+            raise GLSException.GLSException("Could not send waypoint to server.", GLSException.EC_UNKNOWN_ERROR, "Underlaying error: " + str(e))
+        
+    def requestPositions(self):
+        """
+        Requests positions of others from the server.
+        
+        @return: List of position of others received from the server in dictionary format. The key is the name of the "other", the value is the position.
+        @rtype: C{Dict} of C{String} | L{PythonGLS.Position}
+        """
+        try:
+            res = self._sendCommand(GLSCommands.CO_POSITION)    
+            ret = {}
+            for item in res:
+                if item[0]!= GLSCommands.RE_FINISHED:
+                    line = item[1:]
+                    tokens = self._extractFloatsFromString(line)
+                    ret[tokens[0]] = Position(tokens[1],tokens[2],tokens[3],tokens[4],tokens[5])
+            return ret
+        except Exception, e:
+            if isinstance(e, GLSException.GLSException):
+                raise e
+            raise GLSException.GLSException("Could not request positions of others from server.", GLSException.EC_UNKNOWN_ERROR, "Underlaying error: " + str(e))
+        
+    def requestWaypoints(self):
+        """
+        Requests waypoints of others from the server.
+
+        @return: List of waypoints of others received from the server in dictionary format. The key is the name of the "other", the value is the waypoint.
+        @rtype: C{Dict} of C{String} | L{PythonGLS.Waypoint}
+        """
+        try:
+            res = self._sendCommand(GLSCommands.CO_WAYPOINT)    
+            ret = {}
+            for item in res:
+                if item[0]!= GLSCommands.RE_FINISHED:
+                    line = item[1:]
+                    tokens = self._extractFloatsFromString(line)
+                    ret[tokens[0]] = Waypoint(tokens[1],tokens[2],tokens[3],tokens[4])
+            return ret
+        except Exception, e:
+            if isinstance(e, GLSException.GLSException):
+                raise e
+            raise GLSException.GLSException("Could not request positions of others from server.", GLSException.EC_UNKNOWN_ERROR, "Underlaying error: " + str(e))
+        
+        

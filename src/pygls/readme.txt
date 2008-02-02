@@ -44,4 +44,39 @@ have access to members of this package.
 
 Here an example:
 
-import pygls
+from pygls.ServerConnection import ServerConnection
+from pygls.PythonGLS import Position, Waypoint
+import pygls.GLSException
+
+s = ServerConnection("localhost", 47757, "2", "CathodioN", "test", "DummyDevice", "OpenMoko")
+try:
+    print "Available groups are: "
+    groups =  s.requestGroups()
+    for x in groups:
+        print "\t%s" %x
+    print "Joining group %s" %(groups[0])
+    s.joinGroup(groups[0])
+    print "\tOK"
+    
+    pos = Position(23.4545,45.345345,1234.34,89.63,180)
+    print "Sending my position: " + str(pos)
+    s.sendPosition(pos)
+    print "\tOK"
+    
+    wp = Waypoint(23.234,234.34343,125,"Carpool Parking Space")
+    print "Sending my waypoint: " + str(wp)
+    s.sendWaypoint(wp)
+    print "\tOK"
+    
+    posOthers = s.requestPositions()
+    print "Position of others"
+    for pos in posOthers.keys():
+        print "\t" + pos + ":" + str(posOthers[pos])
+
+    wpOthers = s.requestWaypoints()
+    print "Waypoints of others"
+    for wp in wpOthers.keys():
+        print "\t" + wp + ":" + str(wpOthers[wp])
+
+except pygls.GLSException.GLSException, e:
+    print "Connection error: " + e.getMsg() + "\n\t" + e.getLongMsg()

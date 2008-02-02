@@ -1,5 +1,7 @@
 Changes to PythonGLS
 
-Version 0.1 - ??/??/2008
+Version 0.1 - 02/02/2008
 ========================
 Initial version
+- GLS Protocol version 2.0-Beta2 fully implemented - all commaneds supported.
+- Connection to GLS Server is established and all communication for the commands can be carried out sucessfully via this connection
