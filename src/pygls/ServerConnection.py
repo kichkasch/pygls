@@ -124,14 +124,23 @@ class ServerConnection:
             raise GLSException.GLSException("Violation of business rules (C) when sending the command.", GLSException.EC_VIOLATION_BUSINESS_RULES, "A business rule was violated when sending the command " + command)
         if data[0] == GLSCommands.RE_ERROR:
             raise GLSException.GLSException("Validation error (E) when sending the command.", GLSException.EC_VALIDATION_ERROR, "A validation error occured when sending the command " + command)
-
+        
+##        print "\t\treceived (1st):" + data
+        
         if data[0] == GLSCommands.RE_POSITION or data[0] == GLSCommands.RE_WAYPOINT or data[0] == GLSCommands.RE_GROUP or data[0] == GLSCommands.RE_FINISHED:
             ret = []
-            ret.append(data)
+            tokens = data.split("\n")
+            for t in tokens:
+                ret.append(t)
+                data = t
             while data[0] != GLSCommands.RE_FINISHED:   # fill up return list until the FINISH line comes in
-                data, tmp = self._s.recvfrom(1024)
+                data = self._s.recv(1024)
+                print "\t\treceived (next):" + data
                 data = data[:len(data)-1]   # remove line feed
-                ret.append(data)
+                tokens = data.split("\n")
+                for t in tokens:
+                    ret.append(t)
+                    data = t
             data = ret
 ##        print "\tReceived %s" %data
         return data

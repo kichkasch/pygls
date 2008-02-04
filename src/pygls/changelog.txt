@@ -1,5 +1,10 @@
 Changes to PythonGLS
 
+Version 0.1.1 - 04/02/2008
+==========================
+Bug fixes
+- Fixed a bug occuring when a multi line reply from the server is sent in one message
+
 Version 0.1 - 02/02/2008
 ========================
 Initial version

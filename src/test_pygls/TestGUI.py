@@ -3,6 +3,10 @@ Test program with graphical output for
 Python library for GPS Location Sharing.
 http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG
 
+The following site-packages (for Python) must be installed:
+- tkinter
+- pygls
+
 @author: Michael Pilgermann
 @contact: mailto:michael.pilgermann@gmx.de
 @contact: http://www.kichkasch.de
@@ -146,10 +150,11 @@ def _evaluateArgs():
     return 0
 
 
-if not _evaluateArgs():
-    s, canvas = startup()
-    if s!=None:
-        while 1:
-            print "Updating positions"
-            pos = getPositions(s)
-            drawStuff(canvas, pos)
+if __name__ == "__main__":
+    if not _evaluateArgs():
+        s, canvas = startup()
+        if s!=None:
+            while 1:
+                print "Updating positions"
+                pos = getPositions(s)
+                drawStuff(canvas, pos)

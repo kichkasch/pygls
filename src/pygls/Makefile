@@ -33,7 +33,5 @@ install:
 clean:
 	$(RM) *.pyc pygls/*.pyc
 
-#distribution:
-#	$(PYTHON) setup.py sdist --formats=gztar,zip
-	
-	
+distribution:	
+	$(PYTHON) setup.py sdist --formats=gztar,zip

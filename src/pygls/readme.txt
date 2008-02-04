@@ -27,9 +27,9 @@ Requirements
 
 Step by step
 - Unpack the archive
-    * tar xzvf pygls-0.1.tar.gz
+    * tar xzvf pygls-0.1.1.tar.gz
 - Change into directory pygls
-    * cd pygls
+    * cd pygls-0.1.1
 - Run Makefile with option install
     * make install  (you must have root privileges: e.g. sudo make install)
 
