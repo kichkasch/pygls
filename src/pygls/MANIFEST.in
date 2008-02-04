@@ -1,0 +1,4 @@
+include apidoc apidoc/*.*
+include changelog.txt
+include readme.txt
+include Makefile
