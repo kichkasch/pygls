@@ -57,36 +57,6 @@ def testMore():
     except pygls.GLSException.GLSException, e:
         print "Connection error: " + e.getMsg() + "\n\t" + e.getLongMsg()
 
-
-def moveAround(loops, delay):
-    s = ServerConnection("localhost", 47757, "2", "CathodioN", "test", "DummyDevice", "OpenMoko")
-    try:
-        print "Available groups are: "
-        groups =  s.requestGroups()
-        for x in groups:
-            print "\t%s" %x
-        print "Joining group %s" %(groups[0])
-        s.joinGroup(groups[0])
-        print "\tOK"
-        
-        pos = Position(23.4545,25.345345,1234.34,89.63,180)
-        current = 0
-        while current < loops:
-            deltaX = random.random()*4 - 2
-            deltaY = random.random()*4 - 2
-            print "\tMoving %f / %f." %(deltaX, deltaY)
-            pos = Position(pos.getLatitude()+deltaX,pos.getLongitude()+deltaY,1234.34,89.63,180)
-            print "Sending my position: " + str(pos)
-            s.sendPosition(pos)
-            print "\tOK"
-            current +=1
-            time.sleep(delay)
-        
-
-    except pygls.GLSException.GLSException, e:
-        print "Connection error: " + e.getMsg() + "\n\t" + e.getLongMsg()
-
     
 #testConnection()
-#testMore()
-moveAround(10, 5)
+testMore()
