@@ -21,7 +21,7 @@ http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG
 from distutils.core import setup
 
 global version
-version = "0.1.1"
+version = "0.1.2"
 
 if __name__ == "__main__":
     setup (

@@ -1,5 +1,10 @@
 Changes to PythonGLS
 
+Version 0.1.2 - 06/02/2008
+==========================
+Bug fixes
+- Connection to GLS Server may now be terminated from outside
+
 Version 0.1.1 - 04/02/2008
 ==========================
 Bug fixes
