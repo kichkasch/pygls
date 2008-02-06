@@ -22,8 +22,6 @@ class ServerConnection:
     Connection will be established automatically as soon as the first command is to be sent to the server. Connection
     will be shut down from the client as soon as the destructor is called.
     
-    There is no need (and way) to establish or shut down the connection to the server manually.
-    
     @ivar _hostName: Hostname or IP address of the GLS server
     @type _hostName: C{String}
     @ivar _port: Port, the GLS server is listening on
@@ -86,7 +84,7 @@ class ServerConnection:
         
         Closes connection to server.
         """
-        self._closeConnection()
+        self.closeConnection()
         
     def _sendCommand(self, command, initMode = 0):
         """
@@ -135,7 +133,7 @@ class ServerConnection:
                 data = t
             while data[0] != GLSCommands.RE_FINISHED:   # fill up return list until the FINISH line comes in
                 data = self._s.recv(1024)
-                print "\t\treceived (next):" + data
+##                print "\t\treceived (next):" + data
                 data = data[:len(data)-1]   # remove line feed
                 tokens = data.split("\n")
                 for t in tokens:
@@ -212,7 +210,7 @@ class ServerConnection:
 ##        print "Connected to %s " %self._hostName
         
         
-    def _closeConnection(self):
+    def closeConnection(self):
         """
         Closes down the socket to the server.
         """
@@ -221,6 +219,7 @@ class ServerConnection:
 ##        print "Closing connection to GLS server"
         self._sendCommand(GLSCommands.CO_QUIT)
         self._s.close()
+        self._connected = 0
 ##        print "\tConnection closed"
 
         

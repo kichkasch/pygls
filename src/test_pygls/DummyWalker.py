@@ -21,6 +21,7 @@ DEVICE = "DummyDevice"
 
 DELAY = 5       # seconds between 2 updates
 LOOPS = 0       # infinite
+SPEED = 0.001   # Speed, the Walker is moving at
 
 
 from pygls.ServerConnection import ServerConnection
@@ -31,8 +32,8 @@ import random
 import getopt, sys
 
 def _evaluateArgs():
-    global GROUP, USER, PASSWORD, SERVER, PORT, DELAY, LOOPS
-    optlist, args = getopt.getopt(sys.argv[1:], 'g:u:s:h:p:d:l:')
+    global GROUP, USER, PASSWORD, SERVER, PORT, DELAY, LOOPS, SPEED
+    optlist, args = getopt.getopt(sys.argv[1:], 'g:u:s:h:p:d:l:v:')
     for o,a in optlist:
         if o == "-g":
             GROUP = a
@@ -50,6 +51,8 @@ def _evaluateArgs():
             DELAY = int(a)
         if o == "-l":
             LOOPS = int(a)
+        if o == "-v":
+            SPEED = float(a)
     return 0
 
 
@@ -63,11 +66,14 @@ def moveAround(loops, delay):
         s.joinGroup(GROUP)
         print "\t\tOK"
         
-        pos = Position(23.4545,25.345345,1234.34,89.63,180)
+        print "my speed: %f" %SPEED
+        deltaX = random.random()* SPEED * 200 - (SPEED*100)
+        deltaY = random.random()* SPEED * 200 - (SPEED*100)
+        pos = Position(52.538643+deltaX,13.421938+deltaY,1234.34,89.63,180) # this way, 2 won't start exactly at the same location :)
         current = 0
         while loops == 0 or current < loops:
-            deltaX = random.random()*4 - 2
-            deltaY = random.random()*4 - 2
+            deltaX = random.random()* SPEED - (SPEED/2)
+            deltaY = random.random()* SPEED - (SPEED/2)
             print "\tMoving %f / %f." %(deltaX, deltaY)
             pos = Position(pos.getLatitude()+deltaX,pos.getLongitude()+deltaY,1234.34,89.63,180)
             print "Sending my position: " + str(pos)

@@ -1,0 +1,9 @@
+[pygls]
+group: OpenMoko
+server: localhost
+port: 47757
+user: Michael
+password: None
+device: DummyDevice
+delay: 10
+forceredraw: 1

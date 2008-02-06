@@ -44,10 +44,6 @@ def getPositions(s):
         print "Position of others"
         for pos in posOthers.keys():
             print "\t" + pos + ":" + str(posOthers[pos])
-##        x = 1         # get some more data here - stupid copy
-##        while x < 8:
-##            posOthers[posOthers.keys()[0]+"_copy_" + str(x)] = posOthers[posOthers.keys()[0]]  
-##            x+=1
         return posOthers
     except pygls.GLSException.GLSException, e:
         print "Connection error: " + e.getMsg() + "\n\t" + e.getLongMsg()

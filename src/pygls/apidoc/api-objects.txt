@@ -57,7 +57,7 @@ pygls.PythonGLS.Waypoint._altitude	pygls.PythonGLS.Waypoint-class.html#_altitude
 pygls.PythonGLS.Waypoint.__str__	pygls.PythonGLS.Waypoint-class.html#__str__
 pygls.PythonGLS.Waypoint.__init__	pygls.PythonGLS.Waypoint-class.html#__init__
 pygls.ServerConnection.ServerConnection	pygls.ServerConnection.ServerConnection-class.html
-pygls.ServerConnection.ServerConnection._closeConnection	pygls.ServerConnection.ServerConnection-class.html#_closeConnection
+pygls.ServerConnection.ServerConnection._s	pygls.ServerConnection.ServerConnection-class.html#_s
 pygls.ServerConnection.ServerConnection._sendCommands	pygls.ServerConnection.ServerConnection-class.html#_sendCommands
 pygls.ServerConnection.ServerConnection.sendPosition	pygls.ServerConnection.ServerConnection-class.html#sendPosition
 pygls.ServerConnection.ServerConnection._hostName	pygls.ServerConnection.ServerConnection-class.html#_hostName
@@ -77,8 +77,8 @@ pygls.ServerConnection.ServerConnection.testConnection	pygls.ServerConnection.Se
 pygls.ServerConnection.ServerConnection.requestGroups	pygls.ServerConnection.ServerConnection-class.html#requestGroups
 pygls.ServerConnection.ServerConnection._password	pygls.ServerConnection.ServerConnection-class.html#_password
 pygls.ServerConnection.ServerConnection._deviceName	pygls.ServerConnection.ServerConnection-class.html#_deviceName
-pygls.ServerConnection.ServerConnection._s	pygls.ServerConnection.ServerConnection-class.html#_s
 pygls.ServerConnection.ServerConnection._version	pygls.ServerConnection.ServerConnection-class.html#_version
 pygls.ServerConnection.ServerConnection._groupName	pygls.ServerConnection.ServerConnection-class.html#_groupName
 pygls.ServerConnection.ServerConnection._sendCommand	pygls.ServerConnection.ServerConnection-class.html#_sendCommand
+pygls.ServerConnection.ServerConnection.closeConnection	pygls.ServerConnection.ServerConnection-class.html#closeConnection
 pygls.ServerConnection.ServerConnection._establishConnection	pygls.ServerConnection.ServerConnection-class.html#_establishConnection
