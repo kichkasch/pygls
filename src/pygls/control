@@ -1,0 +1,11 @@
+ ### Begin CONTROL/control file
+ ### required for creation of IPKG-bin package
+Package: pygls
+Priority: optional
+Section: Communications
+Version: 0.1.2
+Architecture: all
+Maintainer: Michael Pilgermann michael.pilgermann@gmx.de
+Depends: python
+Description: pygls is the python library for the GPS Location Sharing project.  
+ See http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG for more details.
