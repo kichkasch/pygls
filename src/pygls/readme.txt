@@ -4,39 +4,30 @@ Michael Pilgermann
 Email to: michael.pilgermann@gmx.de
 Licensed under the Genreal Public License (GPL) 
 
-http://www.assembla.com/wiki/show/dZdDzazrmr3k7AabIlDkbG
-
+http://wiki.github.com/kichkasch/pygls
 
 Content
-1. Introduction
-2. Installation
-3. Usage
-...
+1. Installation
+2. Usage
 
 
-1. Introduction
----------------
-...
-
-
-
-2. Installation
+1. Installation
 ---------------
 Requirements
 - Python (>=2.5) must be installed.
 
 Step by step
 - Unpack the archive
-    * tar xzvf pygls-0.1.2.tar.gz
+    * tar xzvf pygls-0.1.3.tar.gz
 - Change into directory pygls
-    * cd pygls-0.1.2
+    * cd pygls-0.1.3
 - Run Makefile with option install
     * make install  (you must have root privileges: e.g. sudo make install)
 
 Off you go. The library is installed.
 
 
-3. Usage
+2. Usage
 --------
 PythonGLS is a library. You may use it from within your Python code to access functionality
 from the GPS Location Sharing project. You have to import the moduel (pygls); afterwards you

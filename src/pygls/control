@@ -3,7 +3,7 @@
 Package: pygls
 Priority: optional
 Section: Communications
-Version: 0.1.2
+Version: 0.1.3
 Architecture: all
 Maintainer: Michael Pilgermann michael.pilgermann@gmx.de
 Depends: python
