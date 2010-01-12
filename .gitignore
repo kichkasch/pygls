@@ -1,0 +1,7 @@
+*.pyc
+*.e4p
+.eric4project
+apidoc*
+*ipk
+*tar.gz
+*deb

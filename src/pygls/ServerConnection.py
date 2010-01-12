@@ -73,7 +73,7 @@ class ServerConnection:
         self._clientName = clientName
         self._password = password
         self._deviceName = deviceName
-        self_groupName = groupName
+        self._groupName = groupName
         self._serverVersion = None
         self._connected = 0
         self._s = None
